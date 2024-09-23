@@ -1,4 +1,4 @@
-FROM your_base_image
+FROM ubuntu
 
 # Install Apache
 RUN apt-get update && apt-get install -y apache2
