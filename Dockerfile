@@ -1,6 +1,10 @@
-FROM ubuntu
-RUN apt-get update -y
-RUN apt-get install apache2 -y
-COPY . /var/www/html/
-EXPOSE 4000
-CMD ["/usr/sbin/apachectl" "-D" "FOREGROUND"]
+FROM your_base_image
+
+# Install Apache
+RUN apt-get update && apt-get install -y apache2
+
+# Copy your application files here, if needed
+COPY ./your-app /var/www/html/
+
+# Start Apache
+CMD ["apachectl", "-D", "FOREGROUND"]
