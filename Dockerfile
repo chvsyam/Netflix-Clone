@@ -1,10 +1,6 @@
 FROM ubuntu
-
-# Install Apache
-RUN apt-get update && apt-get install -y apache2
-
-# Copy your application files here, if needed
-COPY ./Netflix-Clone /var/www/html/
-
-# Start Apache
-CMD ["apachectl", "-D", "FOREGROUND"]
+RUN apt-get update -y
+RUN apt-get install apache2 -y
+COPY . /var/www/html/
+EXPOSE 4000
+CMD ["/usr/sbin/apachectl" "-D" "FOREGROUND"]
